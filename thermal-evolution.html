@@ -29,24 +29,28 @@
 						<!-- Content -->
 							<section id="content" class="main">
 								
-								<h2>Sinking Silicates JWST Cycle 2 Program</h2>
+								<h2>Project Description</h2>
 								
-								<img src="images/mmratio_vs_separation.png" alt="Description" style="float: right; width: 50%; margin: 0 0 1em 1em;" />
+								<img src="images/tp-evo.jpg" alt="Description" style="float: right; width: 50%; margin: 0 0 1em 1em;" />
 
-								<p>My research focuses on L and T brown dwarfs observed with JWST’s NIRSpec and MIRI instruments as part of the Cycle 2 program called Sinking Silicates. The name comes from the fact that L dwarfs have cloudy photospheres containing silicate particles, which, as the objects cool and transition into T dwarfs, sink below the visible photosphere.</p>
-								<p> In this program, 13 brown dwarfs near the L–T transition were observed, all of which are in binary systems with well-characterised primary stars. Knowing the compositions of these primary stars is crucial, as it allows us to assume that the brown dwarfs share a common origin and bulk composition, enabling more accurate atmospheric characterisation.</p>		
-								<p>The figure on the right shows the targets' mass ratio with their primaries and their separation. These targets fall within the region typical for stellar companions, supporting the idea that the brown dwarfs and their primaries formed through the same processes. </p>
+								<p> For my Final Master's Thesis at Leiden University (the MSc program requires students to write two theses), I investigated how the thermal evolution affects the atmospheric chemical composition of various hydrogen-dominated gaseous planets. </p>
+								<p> I used the Modules for Experiments in Stellar Astrophysics (MESA) evolutionary code to evolve four different planet-star systems and the analytical approximation by Heng et al. (2014) to calculate the planets' temperature profile, which is seen on the right. </p>		
+								<p> To model the evolving chemical abundances, I used the VULCAN disequilibrium chemistry code. These time-dependent abundances were then passed to the petitRADTRANS radiative transfer code to generate transmission spectra throughout the planets' evolution.</p>
 								
 								
+								<h2>Main Findings</h2>
 								
-								<h2>Project Goals</h2>
-								<p>During my PhD, I characterise the atmospheric properties of benchmark L and T brown dwarfs near the L–T transition using low-resolution (R ~ 100) JWST NIRSpec and MIRI spectra. I investigate the composition and behavior of silicate clouds, particularly how they form, evolve, and sink below the photosphere as brown dwarfs cool. 
-								   To achieve this, I use the second version of Brewster, a retrieval analysis code made specifically for brown dwarfs and gaseous giant planets.</p>
-								   
-								<p>My goal is to compare my observational results to theoretical models of cloud formation and sedimentation, to better understand substellar atmospheric processes. 
-								Figure below shows the fitted emission spectra of SDSSJ141659.78+500626.4, an L4 dwarf, using three different cloud models. The best one has enstatite and iron clouds, indicating that its magnesium-to-silicon (Mg/Si) ratio is between ~0.9 - 1.3. However, based on Gaia survey data, the primary has an Mg/Si ratio of 1.55, hence one would assume a forsterite cloud in this target's atmosphere. This result indicates that phase equilibrium models alone might be unable to fully capture the complexity of BD atmospheres, highlighting the need for more complex microphysical models.</p>   
+								<p>My main goal was to identify time-dependent features on the transmission spectra that could provide insights into the formation and evolution of these gaseous planets. </p>
+								
+								<p>The simulated spectra show several evolving features over time (bottom panel). One of the most prominent evolving features was the CO₂ absorption feature at ∼4.3 μm, which favours high temperatures and therefore was highly sensitive to changes in the planet’s internal temperature and the incoming radiation from the host star. </p>
+								
+								<p> For further details, please read my paper: <br>
+								Kecskeméthy, V., Louca, A., Miguel, Y. (2024). Temporal Variability in Transmission Spectra of H2-Dominated Exoplanets: The 							Influence of Thermal Evolution and Stellar Irradiation on Atmospheric Composition. New Astronomy, Volume 113, id.102296, December 2024. <br> 
+								DOI: <a href="https://doi.org/10.1016/j.newast.2024.102296" target="_blank" rel="noopener noreferrer">10.1016/j.newast.2024.102296</a> </p>
+								
+								
 								<span class="image main">
-									<img src="images/SPECTRUM_POSTER.png" alt="" style="display: block; margin: 0 auto; max-width: 60%; height: auto;" />
+									<img src="images/MRP-spectra.jpg" alt="" style="display: block; margin: 0 auto; max-width: 80%; height: auto;" />
 								</span>
 							</section>
 
