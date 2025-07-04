@@ -100,9 +100,9 @@ input, select, textarea {
 
 	body {
 		background-color: #606060;
-		background-image: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(192,192,192,0.9) 100%);
+		background-image: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(60,60,60,0.9) 100%);
   		background-repeat: no-repeat;
-  		/*background-attachment: fixed;  optional: keeps background fixed on scroll */
+  		background-attachment: fixed;  /*#optional: keeps background fixed on scroll */
 		}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
