@@ -21,6 +21,11 @@
 					<header id="header">
 						<h1>Substructure of planet-forming disks with VLTI</h1>
 					</header>
+					
+				<!-- Home Button -->
+					<div style="padding: 20px;">
+ 						 <a href="index.html" style="text-decoration: none; font-size: 16px; color: white; background-color: #333; padding: 10px 15px; border-radius: 5px;">Home</a>
+					</div>
 
 				<!-- Main -->
 					<div id="main">
@@ -28,35 +33,42 @@
 						<!-- Content -->
 							<section id="content" class="main">
 								
-								<h2>Background</h2>
-								<p> It has been shown in the last couple of years that protoplanetary or planet-forming disks have various substructures like rings, spiral arms, asymmetric features or gaps. It is believed that forming planets within the disk can create such gaps.</p>
-		
+								<h2>Project Description</h2>
+								
+								<img src="images/mass_vs_au.png" alt="Description" style="float: right; width: 50%; margin: 0 0 1em 1em;" />
+								<p> Protoplanetary (planet-forming) disks often exhibit substructures such as rings, spiral arms, asymmetries, and gaps. These features are believed to be linked to the presence of forming planets.
+								<br> As part of my First Master's Thesis at Leiden University (the MSc program requires students to write two theses!), I modelled and analysed the inner structure of a large sample of protoplanetary disks observed with VLTI-MATISSE in the L- and N-bands.  </br>
+								</p>
+								
+								<p>
+								My main goal was to find gaps within the inner few au of the disks as those can be indicators of nascent planets. To achieve this, I fitted geometric models (2D Gaussian and temperature gradient models with and without gaps) to the interferometric visibility and constrained the model parameters with the <i>emcee</i> Python package.
+								If a gap is caused by a forming planet, its width is expected to correlate with the planet's mass. After I found indicators of gaps, I calculated whether they are wide enough to be caused by a planet using the methodology of <a href="https://academic.oup.com/pasj/article/68/3/43/2223288" target="_blank">Kanagawa et al. 2016</a>.
+								</p>
+								
+								<p>
+								Overall, I found four planet candidates around CQ Tau, HD 100546, HD 142527, and HD 144432. The figure above shows the planets' calculated mass versus their semimajor axes, with the pink shaded regions indicating the modelled gap widths. An example of the visibility modelling is shown below.
+								</p>
 								
 								
-								<h2>Results</h2>
+								<span class="image main">
+									<img src="images/gapnogap2.png" alt="" style="display: block; margin: 0 auto; max-width: 50%; height: auto;" />
+								</span>
 								
-								<p>A simple way to infer the shape of an asteroid is to plot its light curve amplitude against its rotational frequency (cycle/day). The figure below shows such a plot, with our TNOs presented in blue. The dashed curves indicate the rotation of a strengthless body with the shape of a Jacobi ellipsoid for a given density (in g cm<sup>-3</sup>). Objects lying to the right of a curve are likely single rotating bodies with that density, whereas objects to the left of those curves are too slow to maintain elongated bodies, therefore they are often explained by binarity.</p>
-								
-								<p> TNOs believed to have a density of  0.5 - 1.0 g cm<sup>-3</sup>, and most of our targets lie left to those specific density curves.  </p>
-								
-								<p> The fraction of binary candidates is similar in every K2 group (blue—our K2 TNOs; purple—K2 Trojans; Green—K2 Hildas; Brown—K2 Centaurs) </p>
-								<img src="images/lc.png" alt="Description of image" style="display: block; margin: 10px auto; max-width: 80%; height: auto;">
-
-								
-								<p>In addition, we found that there are TNOs with sizes D > 300km that produced larger light curve amplitudes than expected based on the assumptions that these further objects reach hydrostatic equilibrium at smaller sizes because of their lower compressive strength compared to the inner solar system bodies. </p>
-								
-								<p>The figure below shows the light curve amplitudes and the estimated sizes of our TNOs with blue symbols.  The region between the vertical dashed lines mark the irregular-to-spherical transition size range in the main belt. The blue and black lines are mean light curve medians for TNOs and main belt asteroids, respectively. Both lines follow a similar trend, however, TNOs have significantly larger amplitudes. Possible explanations: 
-								<li>Higher compressive strength</li>
-								<li>High fraction of binaries among TNOs</li>
-								<li>More albedo variegation on the surface (not seen in the main belt)</li> </p>
+								<p>
+								For more details on the modelling, please read: <br> 
+					
 								
 								
-								<img src="images/amplitudes.jpg" alt="Description of image" style="display: block; margin: 10px auto; max-width: 40%; height: auto;">
-
-								<p> For further details, please read my paper: <br>
-								Kecskeméthy V. et al. “Light Curves of Trans-Neptunian Objects from the K2 Mission of the Kepler Space Telescope”. In: The Astrophysical Journal Supplement Series 264.1, 18 (Jan. 2023), p. 18. <br> 
-								DOI: <a href="https://ui.adsabs.harvard.edu/link_gateway/2023ApJS..264...18K/doi:10.3847/1538-4365/ac9c67" target="_blank" rel="noopener noreferrer">10.3847/1538-4365/ac9c67</a> </p>
+								Varga, J.; [and 39 others, including <strong>Kecskeméthy, V</strong>] (2024). Mid-infrared Evidence for Iron-Rich Dust in the Multi-Ringed
+								Inner Disk of HD 144432. Astronomy & Astrophysics, Volume 681, id.A47, 29 pp., January 2024 <br> 
+								DOI: <a href="https://ui.adsabs.harvard.edu/link_gateway/2024A&A...681A..47V/doi:10.1051/0004-6361/202347535" target="_blank" rel="noopener noreferrer">10.1051/0004-6361/202347535</a> 
+								<br>
+								or
+								<br>
+								Varga, J. et al. (2024). The asymmetric inner disk of the Herbig Ae star HD 163296 in the eyes of VLTI/MATISSE: evidence for a vortex? Astronomy & Astrophysics, Volume 647, id.A56, 22 pp., March 2021 <br> 
+								DOI: <a href="https://ui.adsabs.harvard.edu/link_gateway/2021A&A...647A..56V/doi:10.1051/0004-6361/202039400" target="_blank" rel="noopener noreferrer"> 10.1051/0004-6361/202039400</a>
 								
+								</p>
 								
 
 							</section>
@@ -82,7 +94,7 @@
 								<li><a href="#" class="icon brands fa-dribbble alt"><span class="label">Dribbble</span></a></li>
 							</ul> -->
 						</section>
-						<p class="copyright">&copy; Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						<p  class="copyright" style="color: white;">&copy; Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 					</footer>
 
 			</div>
