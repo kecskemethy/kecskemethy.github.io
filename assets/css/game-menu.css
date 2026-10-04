@@ -1,0 +1,675 @@
+/*
+  Alternate video-game-menu concept.
+  Loaded only by index-game-menu.html; the primary site remains unchanged.
+*/
+
+body.game-menu {
+  --ink: #02070b;
+  --ink-soft: #071219;
+  --panel: rgba(5, 18, 25, 0.92);
+  --paper: #e8fff8;
+  --paper-soft: #9db6b2;
+  --line: rgba(87, 255, 202, 0.2);
+  --line-strong: rgba(87, 255, 202, 0.48);
+  --orange: #ffb000;
+  --orange-dark: #ff8a00;
+  --mint: #57ffca;
+  --blue: #5da9ff;
+  --radius: 3px;
+  --shadow: 0 0 0 1px rgba(87, 255, 202, .08), 0 30px 90px rgba(0, 0, 0, .62);
+  background:
+    radial-gradient(circle at 83% 18%, rgba(20, 112, 143, .2), transparent 28rem),
+    linear-gradient(135deg, #02070b, #031017 52%, #02070b);
+  font-family: "Segoe UI", Inter, ui-sans-serif, system-ui, sans-serif;
+  isolation: isolate;
+}
+
+body.game-menu::before {
+  z-index: -2;
+  opacity: .32;
+  background-image:
+    linear-gradient(rgba(87, 255, 202, .07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(87, 255, 202, .07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+body.game-menu::after {
+  z-index: 0;
+  opacity: .11;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 3px,
+    rgba(151, 255, 224, .18) 4px
+  );
+  background-size: auto;
+  mix-blend-mode: screen;
+}
+
+body.game-menu > main,
+body.game-menu > footer {
+  position: relative;
+  z-index: 1;
+}
+
+.game-menu ::selection {
+  color: #00100b;
+  background: var(--mint);
+}
+
+.game-menu .skip-link {
+  border-radius: 2px;
+  font-family: Consolas, "Courier New", monospace;
+  text-transform: uppercase;
+}
+
+.game-menu .topbar {
+  position: fixed;
+  inset: 24px auto 24px 24px;
+  z-index: 95;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 230px;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 3px;
+  background:
+    linear-gradient(135deg, rgba(87,255,202,.08), transparent 30%),
+    rgba(2, 9, 13, .93);
+  box-shadow: 0 0 42px rgba(0, 0, 0, .5);
+  backdrop-filter: blur(20px);
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+}
+
+.game-menu .brand {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: .85rem;
+  width: 100%;
+  padding: .2rem 0 1.2rem;
+  border-bottom: 1px solid var(--line);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: .78rem;
+  letter-spacing: .06em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.game-menu .brand-mark {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--mint);
+  border-radius: 2px;
+  color: var(--mint);
+  background: rgba(87,255,202,.08);
+  box-shadow: inset 0 0 18px rgba(87,255,202,.08);
+}
+
+.game-menu .system-status {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .85rem 0 0;
+  color: var(--paper-soft);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: .63rem;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.game-menu .system-status i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 12px var(--mint);
+  animation: game-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes game-pulse {
+  50% { opacity: .35; }
+}
+
+.game-menu .topbar nav {
+  width: 100%;
+  margin-top: 2.4rem;
+}
+
+.game-menu .nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: .35rem;
+  width: 100%;
+}
+
+.game-menu .nav-links a {
+  position: relative;
+  width: 100%;
+  padding: .72rem .65rem .72rem 1.7rem;
+  border: 1px solid transparent;
+  border-radius: 1px;
+  color: var(--paper-soft);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: .69rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.game-menu .nav-links a::before {
+  position: absolute;
+  left: .58rem;
+  content: "›";
+  color: var(--mint);
+  opacity: .48;
+}
+
+.game-menu .nav-links a:hover,
+.game-menu .nav-links a.is-active {
+  border-color: var(--line);
+  color: var(--mint);
+  background: linear-gradient(90deg, rgba(87,255,202,.13), transparent);
+}
+
+.game-menu .nav-links a:hover::before,
+.game-menu .nav-links a.is-active::before {
+  opacity: 1;
+  animation: menu-arrow .8s steps(2) infinite;
+}
+
+@keyframes menu-arrow {
+  50% { transform: translateX(3px); }
+}
+
+.game-menu .nav-cta {
+  margin-top: 1.2rem;
+  border: 1px solid var(--orange) !important;
+  color: var(--orange) !important;
+  background: rgba(255, 176, 0, .07) !important;
+}
+
+.game-menu main,
+.game-menu .footer {
+  margin-left: 254px;
+}
+
+.game-menu .shell {
+  width: min(calc(100% - 56px), 1220px);
+}
+
+.game-menu .hero {
+  position: relative;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, .72fr);
+  gap: clamp(3rem, 6vw, 6rem);
+  min-height: 100svh;
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+
+.game-menu .player-id {
+  display: flex;
+  gap: .6rem;
+  margin-bottom: 1.2rem;
+  color: var(--paper-soft);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: .61rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+.game-menu .player-id span {
+  padding: .32rem .5rem;
+  border: 1px solid var(--line);
+  background: rgba(87,255,202,.04);
+}
+
+.game-menu .eyebrow {
+  color: var(--orange);
+  font-family: Consolas, "Courier New", monospace;
+  letter-spacing: .14em;
+}
+
+.game-menu .eyebrow::before {
+  flex: 0 0 2.5rem;
+  width: 2.5rem;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    currentColor 0 8px,
+    transparent 8px 12px
+  );
+  box-shadow: none;
+}
+
+.game-menu h1,
+.game-menu h2,
+.game-menu h3 {
+  font-family: "Segoe UI", Inter, ui-sans-serif, system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -.055em;
+}
+
+.game-menu h1 {
+  max-width: 780px;
+  margin-bottom: 1.2rem;
+  font-size: clamp(3.4rem, 6.5vw, 7rem);
+  line-height: .87;
+  text-transform: uppercase;
+  text-shadow: 0 0 36px rgba(87, 255, 202, .09);
+}
+
+.game-menu h1 em {
+  display: block;
+  color: var(--mint);
+  font-style: normal;
+  -webkit-text-stroke: 1px var(--mint);
+  text-shadow: 0 0 26px rgba(87,255,202,.15);
+}
+
+.game-menu .hero-tagline {
+  margin: 0 0 1.8rem;
+  color: var(--orange);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: clamp(.86rem, 1.4vw, 1.08rem);
+  font-style: normal;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.game-menu .hero-tagline::before {
+  content: "// ";
+  color: var(--paper-soft);
+}
+
+.game-menu .hero-bio {
+  padding: 1.3rem 1.4rem;
+  border-left: 2px solid var(--mint);
+  color: var(--paper-soft);
+  background: linear-gradient(90deg, rgba(87,255,202,.07), transparent 65%);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: clamp(.8rem, 1vw, .93rem);
+  line-height: 1.7;
+}
+
+.game-menu .hero-bio p:first-child {
+  color: var(--paper);
+}
+
+.game-menu .button {
+  min-height: 46px;
+  padding: .72rem 1rem;
+  border-radius: 1px;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: .7rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+
+.game-menu .button.primary {
+  border-color: var(--mint);
+  color: #00150e;
+  background: var(--mint);
+}
+
+.game-menu .button.primary:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
+.game-menu .hero-visual {
+  max-width: 430px;
+}
+
+.game-menu .portrait-frame {
+  border: 1px solid var(--mint);
+  border-radius: 0;
+  box-shadow: 0 0 0 8px rgba(87,255,202,.025), 0 34px 100px rgba(0,0,0,.72);
+  clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 34px, 100% 100%, 34px 100%, 0 calc(100% - 34px));
+}
+
+.game-menu .portrait-frame img {
+  filter: saturate(.72) contrast(1.12) sepia(.04);
+}
+
+.game-menu .hero-visual::before,
+.game-menu .hero-visual::after {
+  position: absolute;
+  z-index: 2;
+  padding: .45rem .6rem;
+  color: var(--mint);
+  background: rgba(2,7,11,.88);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: .58rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+.game-menu .hero-visual::before {
+  top: 1rem;
+  left: -1rem;
+  content: "CHARACTER PROFILE / VK-01";
+  border-left: 2px solid var(--orange);
+}
+
+.game-menu .hero-visual::after {
+  right: -1rem;
+  bottom: 1.2rem;
+  content: "STATUS // ACTIVE";
+  border-right: 2px solid var(--mint);
+}
+
+.game-menu .orbit {
+  inset: -8%;
+  border: 1px dashed rgba(87,255,202,.2);
+  border-radius: 3px;
+  transform: rotate(3deg);
+}
+
+.game-menu .signal-strip {
+  border-block: 1px solid var(--line-strong);
+  background: rgba(87,255,202,.035);
+}
+
+.game-menu .signal-track {
+  color: var(--mint);
+  animation-duration: 24s;
+}
+
+.game-menu .signal-track span::after {
+  content: "◆";
+  color: var(--orange);
+}
+
+.game-menu .section {
+  padding-block: clamp(5rem, 9vw, 8rem);
+}
+
+.game-menu .section-heading {
+  position: relative;
+  padding: 1.3rem 1.4rem;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--mint);
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  background: linear-gradient(90deg, rgba(87,255,202,.06), transparent 68%);
+}
+
+.game-menu .section-heading::before {
+  position: absolute;
+  top: -.72rem;
+  left: 1rem;
+  padding: 0 .4rem;
+  content: "MISSION SELECT";
+  color: var(--orange);
+  background: var(--ink);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: .58rem;
+  letter-spacing: .13em;
+}
+
+.game-menu .section-heading h2 {
+  font-size: clamp(2.2rem, 4.5vw, 4.4rem);
+  text-transform: uppercase;
+}
+
+.game-menu .research-grid {
+  gap: 1rem;
+}
+
+.game-menu .research-card {
+  min-height: 440px;
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  background:
+    linear-gradient(135deg, rgba(87,255,202,.055), transparent 30%),
+    var(--panel);
+  box-shadow: var(--shadow);
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+}
+
+.game-menu .research-media,
+.game-menu .research-card:nth-child(even) .research-media {
+  border-right: 1px solid var(--line);
+  background: #dce5e2;
+}
+
+.game-menu .research-card:nth-child(even) .research-media {
+  border-right: 0;
+  border-left: 1px solid var(--line);
+}
+
+.game-menu .research-copy {
+  padding: clamp(2rem, 4vw, 3.8rem);
+}
+
+.game-menu .card-index,
+.game-menu .project-kicker {
+  color: var(--orange);
+}
+
+.game-menu .research-copy h3 {
+  text-transform: uppercase;
+}
+
+.game-menu .research-meta li,
+.game-menu .tag {
+  border-radius: 1px;
+  font-family: Consolas, "Courier New", monospace;
+}
+
+.game-menu .text-link {
+  color: var(--mint);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.game-menu .archive-grid {
+  gap: 1rem;
+}
+
+.game-menu .archive-card {
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--orange);
+  border-radius: 2px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+}
+
+.game-menu .archive-card:nth-child(2) { border-top-color: var(--mint); }
+.game-menu .archive-card:nth-child(3) { border-top-color: var(--blue); }
+
+.game-menu .archive-card img {
+  background: #dce5e2;
+}
+
+.game-menu .archive-copy span {
+  color: var(--orange);
+  font-family: Consolas, "Courier New", monospace;
+}
+
+.game-menu .archive-copy h3 {
+  font-family: "Segoe UI", Inter, sans-serif;
+  text-transform: uppercase;
+}
+
+.game-menu .publication-panel,
+.game-menu .hobbies-panel {
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  color: var(--paper);
+  background:
+    linear-gradient(135deg, rgba(87,255,202,.06), transparent 30%),
+    var(--panel);
+  box-shadow: var(--shadow);
+  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%);
+}
+
+.game-menu .publication-intro p,
+.game-menu .hobbies-intro > p:last-child {
+  color: var(--paper-soft);
+}
+
+.game-menu .publication-intro a {
+  color: var(--mint);
+}
+
+.game-menu .stats,
+.game-menu .hobby-grid {
+  border-color: var(--line);
+}
+
+.game-menu .stat,
+.game-menu .hobby-card {
+  border-color: var(--line);
+}
+
+.game-menu .stat strong {
+  color: var(--mint);
+  font-family: Consolas, "Courier New", monospace;
+  text-shadow: 0 0 20px rgba(87,255,202,.15);
+}
+
+.game-menu .stat small,
+.game-menu .hobby-card p {
+  color: var(--paper-soft);
+}
+
+.game-menu .hobbies-intro .eyebrow {
+  color: var(--orange);
+}
+
+.game-menu .hobby-card > span {
+  color: var(--orange);
+}
+
+.game-menu .hobby-card h3 {
+  font-family: "Segoe UI", Inter, sans-serif;
+  text-transform: uppercase;
+}
+
+.game-menu .footer {
+  border-color: var(--line);
+  font-family: Consolas, "Courier New", monospace;
+}
+
+.game-menu .footer-bottom {
+  border-color: var(--line);
+  color: var(--paper-soft);
+}
+
+@media (max-width: 1100px) {
+  .game-menu .topbar {
+    position: sticky;
+    inset: auto;
+    top: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 20px);
+    min-height: 62px;
+    margin: 10px auto 0;
+    padding: .55rem .7rem;
+    clip-path: none;
+  }
+
+  .game-menu .brand {
+    display: flex;
+    width: auto;
+    padding: 0;
+    border: 0;
+  }
+
+  .game-menu .system-status {
+    display: none;
+  }
+
+  .game-menu .topbar nav {
+    width: auto;
+    margin: 0;
+  }
+
+  .game-menu .nav-links {
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+  }
+
+  .game-menu .nav-links a {
+    width: auto;
+    padding: .6rem .65rem;
+  }
+
+  .game-menu .nav-links a::before {
+    display: none;
+  }
+
+  .game-menu .nav-cta {
+    margin-top: 0;
+  }
+
+  .game-menu main,
+  .game-menu .footer {
+    margin-left: 0;
+  }
+
+  .game-menu .hero {
+    min-height: auto;
+    padding-top: 7rem;
+  }
+
+  .game-menu .research-media,
+  .game-menu .research-card:nth-child(even) .research-media {
+    border: 0;
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 700px) {
+  .game-menu .shell {
+    width: min(calc(100% - 24px), 1220px);
+  }
+
+  .game-menu .brand-text {
+    display: none;
+  }
+
+  .game-menu .nav-links li:nth-child(3) {
+    display: none;
+  }
+
+  .game-menu .nav-links a {
+    font-size: .62rem;
+  }
+
+  .game-menu .hero {
+    padding-top: 5rem;
+  }
+
+  .game-menu h1 {
+    font-size: clamp(3.2rem, 17vw, 5.5rem);
+  }
+
+  .game-menu .player-id {
+    flex-wrap: wrap;
+  }
+
+  .game-menu .hero-visual::before {
+    left: -.4rem;
+  }
+
+  .game-menu .hero-visual::after {
+    right: -.4rem;
+  }
+
+  .game-menu .section-heading {
+    padding: 1.3rem 1rem;
+  }
+}
